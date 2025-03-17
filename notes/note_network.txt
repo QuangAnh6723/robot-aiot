@@ -1,0 +1,45 @@
+Tệp /etc/netplan/50-cloud-init.yaml là một tệp cấu hình mạng trong hệ thống sử dụng Netplan (Debian, Ubuntu). Netplan sử dụng định dạng YAML, vì vậy cần tuân thủ đúng cú pháp để tránh lỗi.
+
+Phân tích cú pháp tệp YAML
+Cấu trúc của 50-cloud-init.yaml thường như sau:
+
+yaml
+Sao chép
+Chỉnh sửa
+network:
+  version: 2
+  ethernets:
+    eth0:
+      dhcp4: true
+Mỗi dòng có ý nghĩa như sau:
+
+network: → Xác định đây là một cấu hình mạng.
+version: 2 → Phiên bản của Netplan, thường là 2.
+ethernets: → Xác định các giao diện mạng Ethernet.
+eth0: → Tên giao diện mạng (có thể thay đổi, tùy theo hệ thống).
+dhcp4: true → Bật DHCP cho IPv4.
+Cấu hình tĩnh (Static IP)
+Nếu bạn muốn đặt IP tĩnh, cú pháp như sau:
+
+yaml
+Sao chép
+Chỉnh sửa
+network:
+  version: 2
+  ethernets:
+    eth0:
+      addresses:
+        - 192.168.1.100/24
+      gateway4: 192.168.1.1
+      nameservers:
+        addresses:
+          - 8.8.8.8
+          - 8.8.4.4
+addresses: → Địa chỉ IP tĩnh với subnet mask (/24 = 255.255.255.0).
+gateway4: → Cổng mặc định.
+nameservers: → Danh sách DNS server.
+Lưu ý về cú pháp YAML
+Indentation (Thụt lề): YAML sử dụng dấu cách, không dùng Tab.
+Dấu : phải có khoảng trắng sau nó (ví dụ: ethernets: chứ không phải ethernets:).
+Danh sách phải có dấu - và thụt vào đúng mức.
+Bạn muốn kiểm tra hoặc sửa lỗi gì trong file này?
