@@ -1,0 +1,4 @@
+string ssid
+string password
+---
+bool state

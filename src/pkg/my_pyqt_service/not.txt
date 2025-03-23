@@ -1,0 +1,2 @@
+ros2 run my_pyqt_service wifi_service
+ros2 run my_pyqt_service wifi_client_ui
