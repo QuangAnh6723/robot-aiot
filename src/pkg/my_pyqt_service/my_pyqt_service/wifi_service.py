@@ -20,6 +20,13 @@ class WifiService(Node):
         self.get_logger().info(f"   ➤ SSID: {ssid}")
         self.get_logger().info(f"   ➤ Password: {password}")
 
+        import subprocess
+
+        script_path = "/home/aiot/workspace/robot-aiot/scripts/wifii_run.bash"
+        args = [ssid, password]  # Danh sách các đối số
+
+        subprocess.run(["bash", script_path] + args)
+
         response.success = True  # Giả lập kết nối thành công
         response.message = 'vo dc wifi'
         return response

@@ -13,13 +13,15 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='aiot',
-    maintainer_email='aiot@todo.todo',
+    maintainer='a',
+    maintainer_email='lequanganh6723@gmail.com',
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'talker = camera_pkg.camera_ros_pub:main',
+            'listener = camera_pkg.camera_ros_sub:main'
         ],
     },
 )
